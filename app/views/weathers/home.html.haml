@@ -1,0 +1,6 @@
+%h1 What's the weather?
+%p Ruby weather
+
+= form_tag(weathers_path, method: 'post') do
+  = text_field_tag(:city)
+  = submit_tag('Check')
