@@ -1,0 +1,3 @@
+en:
+  errors:
+    city?: 'Wrong city name format. Allowed letters, -,\''
