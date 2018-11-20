@@ -8,7 +8,7 @@ class GetWeatherService
   def call
     response = get_response(@city)
 
-    if response['code'] == '404'
+    if response['cod'] == '404'
       { 'cod' => '404', 'message' => 'city not found' }
     else
       add_city(@city)

@@ -7,14 +7,24 @@ class WeathersController < ApplicationController
   def create
     validator = CityNameValidator::Schema.call(city: params[:city])
     if validator.success?
-      cookies[:city] = params[:city]
-      session[:weather] = GetWeatherService.new(params[:city]).call
-      redirect_to weather_path(params[:city])
+      get_weather = GetWeatherService.new(params[:city]).call
+      if get_weather['cod'] == '404'
+        redirect_to root_path, alert: get_weather['message'].capitalize
+      else
+        session[:weather] = get_weather
+        cookies[:city] = params[:city]
+        redirect_to weather_path(params[:city])
+      end
     else
-      render :home
+      redirect_to root_path, alert: validator.errors.to_s
     end
   end
+
   def show
-    @city_weather = session[:weather]
+    if session[:weather]
+      @city_weather = session[:weather]
+    else
+      redirect_to root_path
+    end
   end
 end
