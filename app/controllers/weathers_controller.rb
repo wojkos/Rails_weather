@@ -1,6 +1,5 @@
 class WeathersController < ApplicationController
   def home
-    @cities = %w[Warsaw Berlin Tokio Paris New\ York]
     @city = cookies[:city]
   end
 
@@ -9,6 +8,7 @@ class WeathersController < ApplicationController
     if validator.success?
       cookies[:city] = params[:city]
       session[:weather] = GetWeatherService.new(params[:city]).call
+      @cities.add(params[:city])
       redirect_to weather_path(params[:city])
     else
       render :home

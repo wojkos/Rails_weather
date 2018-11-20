@@ -6,5 +6,5 @@
     = text_field_tag(:city, @city,placeholder: 'City name...', class: 'form-control')
     = submit_tag('Check', class: 'btn btn-outline-secondary')
 
--@cities.each do |c|
+-@cities.cities.each do |c|
   = button_tag c,value: c, class: 'btn btn-primary btn-sm', onclick: "fillInput(this.value)"
