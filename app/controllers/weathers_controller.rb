@@ -1,5 +1,7 @@
 class WeathersController < ApplicationController
-  def home; end
+  def home
+    @cities = %w[Warsaw Berlin Tokio Paris New\ York]
+  end
 
   def create
     validator = CityNameValidator::Schema.call(city: params[:city])

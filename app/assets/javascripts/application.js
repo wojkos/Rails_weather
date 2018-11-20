@@ -14,3 +14,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+function fillInput(value){
+  document.getElementById('city').value = value
+  document.forms['city_weather_form'].submit();
+}
