@@ -7,14 +7,15 @@
           = image_tag "http://openweathermap.org/img/w/#{@city_weather['weather'][0]['icon']}.png", height: '100px'
           = @city_weather['weather'][0]['description']
         %h6.card-text
-          Temp:
-          = ((@city_weather['main']['temp']).to_f - 273.15).to_s + ' C'
+          = colored_temp(@city_weather['main']['temp'])
         %p.card-text
           Temp max:
-          = ((@city_weather['main']['temp_max']).to_f - 273.15).to_s + ' C'
+          = celsius_degree(@city_weather['main']['temp_max'])
+          C
         %p.card-text
           Temp min:
-          = ((@city_weather['main']['temp_min']).to_f - 273.15).to_s + ' C'
+          = celsius_degree(@city_weather['main']['temp_min'])
+          C
         %p.card-text
           Humidity:
           = (@city_weather['main']['humidity']).to_s + '%'

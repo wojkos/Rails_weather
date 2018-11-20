@@ -7,4 +7,4 @@
     = submit_tag('Check', class: 'btn btn-outline-secondary')
 
 -@cities.each do |c|
-  = button_tag c,value: c, class: 'btn btn-primary btn-sm', onclick: "fillInput(this.value)"
+  = button_tag(c.capitalize,value: c, class: 'btn btn-primary btn-sm', onclick: "fillInput(this.value)")
