@@ -33,3 +33,5 @@
         %p.card-text
           SUNSET: 
           = Time.at(@city_weather['sys']['sunset']).strftime('%H:%M')
+.row
+  = @city_weather

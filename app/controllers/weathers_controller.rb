@@ -1,6 +1,6 @@
 class WeathersController < ApplicationController
   def home
-    @cities = %w[Warsaw Berlin Tokio Paris New\ York]
+    @cities = City.most_checked.pluck(:name)
     @city = cookies[:city]
   end
 
