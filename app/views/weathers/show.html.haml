@@ -1,1 +1,29 @@
+.row.mt-5
+  .col-sm-8
+    .card
+      .card-body
+        %h5.card-title Weather
+        %p.card-text
+          = image_tag "http://openweathermap.org/img/w/#{@city_weather['weather'][0]['icon']}.png", height: '100px'
+          = @city_weather['weather'][0]['description']
+        %h6.card-text
+          = ((@city_weather['main']['temp']).to_f - 273.15).to_s + ' C'
+        %p.card-text
+          = ((@city_weather['main']['temp_max']).to_f - 273.15).to_s + ' C'
+        %p.card-text
+          = ((@city_weather['main']['temp_min']).to_f - 273.15).to_s + ' C'
+  .col-sm-4
+    .card
+      .card-body
+        %strong
+          %p.card-title
+            = @city_weather['name']
+        %p.card-text
+          SUNRISE: 
+          = @city_weather['sys']['sunrise']
+        %p.card-text
+          SUNSET: 
+          = @city_weather['sys']['sunset']
+.row
+
 = @city_weather
