@@ -1,6 +1,6 @@
 class CreateCityService
   def initialize(params)
-    @city = params
+    @city = params.downcase
   end
 
   def call
