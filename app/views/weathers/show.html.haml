@@ -7,11 +7,17 @@
           = image_tag "http://openweathermap.org/img/w/#{@city_weather['weather'][0]['icon']}.png", height: '100px'
           = @city_weather['weather'][0]['description']
         %h6.card-text
+          Temp:
           = ((@city_weather['main']['temp']).to_f - 273.15).to_s + ' C'
         %p.card-text
+          Temp max:
           = ((@city_weather['main']['temp_max']).to_f - 273.15).to_s + ' C'
         %p.card-text
+          Temp min:
           = ((@city_weather['main']['temp_min']).to_f - 273.15).to_s + ' C'
+        %p.card-text
+          Humidity:
+          = (@city_weather['main']['humidity']).to_s + '%'
   .col-sm-4
     .card
       .card-body
@@ -19,11 +25,11 @@
           %p.card-title
             = @city_weather['name']
         %p.card-text
+          TODAY: 
+          = Time.at(@city_weather['sys']['sunrise']).strftime('%Y-%m-%d')
+        %p.card-text
           SUNRISE: 
-          = @city_weather['sys']['sunrise']
+          = Time.at(@city_weather['sys']['sunrise']).strftime('%H:%M')
         %p.card-text
           SUNSET: 
-          = @city_weather['sys']['sunset']
-.row
-
-= @city_weather
+          = Time.at(@city_weather['sys']['sunset']).strftime('%H:%M')
