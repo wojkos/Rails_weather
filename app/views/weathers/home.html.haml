@@ -1,10 +1,13 @@
-%h1 What's the weather?
-%p Ruby weather
-
-= form_tag(weathers_path, method: 'post', id: 'city_weather_form') do
-  .input-group-append
-    = text_field_tag(:city, @city,placeholder: 'City name...', class: 'form-control')
-    = submit_tag('Check', class: 'btn btn-outline-secondary')
-
--@cities.each do |c|
-  = button_tag(c.capitalize,value: c, class: 'btn btn-primary btn-sm', onclick: "fillInput(this.value)")
+.row.mt-5
+  .col-12
+    %h1 What's the weather?
+    %h3 Ruby weather!
+.row.mt-5
+  .col-xs-12.col-md-6.offset-md-2
+    = form_tag(weathers_path, method: 'post', id: 'city_weather_form') do
+      .input-group-append
+        = text_field_tag(:city, @city,placeholder: 'City name...', class: 'form-control')
+        = submit_tag('Check', class: 'btn btn-outline-secondary')
+  .col-xs-12.col-md-6.offset-md-2
+    -@cities.each do |c|
+      = button_tag(c.capitalize,value: c, class: 'btn btn-info btn-sm mt-2', onclick: "fillInput(this.value)")
