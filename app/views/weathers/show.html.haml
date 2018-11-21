@@ -1,5 +1,11 @@
 .row.mt-5
-  .col-sm-8
+  .col-12.text-center
+    %h1 
+      Weather in
+      %strong
+        = @city_weather['name']
+.row.mt-4
+  .col-sm-8.mt-1
     .card
       .card-body
         %h5.card-title Weather
@@ -19,12 +25,9 @@
         %p.card-text
           Humidity:
           = (@city_weather['main']['humidity']).to_s + '%'
-  .col-sm-4
+  .col-sm-4.mt-1
     .card
       .card-body
-        %strong
-          %p.card-title
-            = @city_weather['name']
         %p.card-text
           TODAY: 
           = Time.at(@city_weather['sys']['sunrise']).strftime('%Y-%m-%d')
@@ -34,5 +37,6 @@
         %p.card-text
           SUNSET: 
           = Time.at(@city_weather['sys']['sunset']).strftime('%H:%M')
-.row
-  = @city_weather
+.row.mt-5
+  .col-12.text-center
+    = link_to 'Check another city', root_path, class: 'btn btn-info'
