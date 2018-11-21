@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 describe CreateCityService do
+  before(:each) do 
+    DatabaseCleaner.clean_with(:truncation)
+  end
   context 'send correct city name' do
     it 'create new record if not exist' do
       expect(City.all.size).to eq(0)

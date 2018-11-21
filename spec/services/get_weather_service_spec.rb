@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe GetWeatherService do
   context 'send correct city name' do
     weather = GetWeatherService.new('barcelona').call
