@@ -9,7 +9,7 @@ class GetWeatherService
     response = get_response(@city)
 
     if response['cod'] == '404'
-      { 'cod' => '404', 'message' => 'city not found' }
+      {'cod' => '404', 'message' => 'city not found'}
     else
       add_city(@city)
       response
