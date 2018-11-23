@@ -1,4 +1,4 @@
-### How to run application:
+# How to run application:
 
 ## Add gems
 `bundle install`
