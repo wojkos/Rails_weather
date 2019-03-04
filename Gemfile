@@ -5,7 +5,7 @@ ruby '2.5.3'
 gem 'rails', '~> 5.2.1'
 
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'bootstrap', '~> 4.1.3'
+gem "bootstrap", ">= 4.3.1"
 gem 'coffee-rails', '~> 4.2'
 gem 'dry-validation', '~> 0.12.2'
 gem 'haml', '~> 5.0', '>= 5.0.4'
